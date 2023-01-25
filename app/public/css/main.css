@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+}
+
+.sampleImage{
+  background-image: url("/static/images/sampleBG.jpg");
+  width: 735px;
+  min-height: 15vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+}

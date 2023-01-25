@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+    <script src="/static/js/main.js" defer></script>
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+
+  <main>
+    <div class="sampleImage"> </div>
+    <div class="jumbotron">
+      <h1>Sample App</h1>
+      <p>Welcome to templating using EJS</p>
+    </div>
+
+    <div class="jumbotron">
+      <h1>Todo:</h1>
+    </div>
+
+    <div class="jumbotron">
+      <h1>Actions:</h1>
+      <h2>Sample Post:</h2>
+      <button onclick="createSampleItem()">create Sample Item</button>
+      <h2>Sample Form:</h2>
+      <form action="/testurl" method="post">
+        <label for="team_name">Enter name: </label>
+        <input id="team_name" type="text" name="name_field" value="Default name for team.">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div>
+      <h2>Variable Sample tagline:</h2>
+      <p>
+        <%= tagline %>
+      </p>
+      <h2>Variable Sample forEach:</h2>
+      <ul>
+        <% mascots.forEach(function(mascot) { %>
+          <li>
+            <strong>
+              <%= mascot.name %>
+            </strong>
+            representing <%= mascot.organization %>, born <%= mascot.birth_year %>
+          </li>
+          <% }); %>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+
+</html>

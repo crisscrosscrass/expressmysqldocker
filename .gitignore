@@ -1,0 +1,49 @@
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+# Local History for Visual Studio Code
+.history/
+ 
+# Private Node Modules
+node_modules/
+app/node_modules/
+ 
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+ 
+# Translations
+*.mo
+*.pot
+ 
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+ 
+# SageMath parsed files
+*.sage.py
+ 
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

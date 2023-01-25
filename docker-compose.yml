@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+
+  # admin tool for database
+  adminer:
+    image: adminer
+    container_name: adminerserver
+    #restart: always
+    ports:
+      - 8080:8080
+
+  # main database
+  database:
+      image: mysql
+      container_name: databaseserver
+      # restart: always
+      ports:
+        - '3306:3306'
+      environment:
+        MYSQL_DATABASE: exampledb
+        # login: root + MYSQL_ROOT_PASSWORD
+        MYSQL_ROOT_PASSWORD: examplepassword
+      volumes:
+        - ./db/startup.sql:/docker-entrypoint-initdb.d/init.sql
+        - appsqlproperties:/dbproperties    
+        - databasedata:/var/lib/mysql
+
+  # main app to write to database and interact with backend
+  expressnodejsapp:
+    build: ./app
+    container_name: expressnodejsapp
+    depends_on:
+      - database
+    ports:
+      - 8000:8000
+
+volumes:
+        databasedata:
+        appsqlproperties:
+          driver: local
+          driver_opts:
+                  type: tmpfs
+                  o: size=32k
+                  device: tmpfs
